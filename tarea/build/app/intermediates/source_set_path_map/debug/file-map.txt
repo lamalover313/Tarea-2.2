@@ -18,10 +18,10 @@ com.example.myapp-core-1.13.1-16 /home/user/.gradle/caches/transforms-3/c666c258
 com.example.myapp-lifecycle-runtime-2.7.0-17 /home/user/.gradle/caches/transforms-3/c8996eb6ce8efabee1883fe1486006c9/transformed/lifecycle-runtime-2.7.0/res
 com.example.myapp-jetified-lifecycle-viewmodel-savedstate-2.7.0-18 /home/user/.gradle/caches/transforms-3/ca2eed4266fd24517e583e6618aa3924/transformed/jetified-lifecycle-viewmodel-savedstate-2.7.0/res
 com.example.myapp-jetified-tracing-1.2.0-19 /home/user/.gradle/caches/transforms-3/fee79d0d8ef3af5dbc14ef6d22d028cf/transformed/jetified-tracing-1.2.0/res
-com.example.myapp-debug-20 /home/user/myapp/android/app/src/debug/res
-com.example.myapp-main-21 /home/user/myapp/android/app/src/main/res
-com.example.myapp-pngs-22 /home/user/myapp/build/app/generated/res/pngs/debug
-com.example.myapp-resValues-23 /home/user/myapp/build/app/generated/res/resValues/debug
-com.example.myapp-packageDebugResources-24 /home/user/myapp/build/app/intermediates/incremental/debug/packageDebugResources/merged.dir
-com.example.myapp-packageDebugResources-25 /home/user/myapp/build/app/intermediates/incremental/debug/packageDebugResources/stripped.dir
-com.example.myapp-merged_res-26 /home/user/myapp/build/app/intermediates/merged_res/debug
+com.example.myapp-debug-20 /home/user/myapp/tarea/android/app/src/debug/res
+com.example.myapp-main-21 /home/user/myapp/tarea/android/app/src/main/res
+com.example.myapp-pngs-22 /home/user/myapp/tarea/build/app/generated/res/pngs/debug
+com.example.myapp-resValues-23 /home/user/myapp/tarea/build/app/generated/res/resValues/debug
+com.example.myapp-packageDebugResources-24 /home/user/myapp/tarea/build/app/intermediates/incremental/debug/packageDebugResources/merged.dir
+com.example.myapp-packageDebugResources-25 /home/user/myapp/tarea/build/app/intermediates/incremental/debug/packageDebugResources/stripped.dir
+com.example.myapp-merged_res-26 /home/user/myapp/tarea/build/app/intermediates/merged_res/debug

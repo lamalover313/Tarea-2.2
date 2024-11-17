@@ -1,10 +1,7 @@
-/**
 import 'package:flutter/material.dart';
-import 'widget/name_input.dart';
-import 'widget/email_input.dart';
-import 'widget/phone_input.dart';
+import 'login_page.dart';
+import 'custum_inputs.dart';
 import 'widget/password_input.dart';
-import 'widget/register_button.dart';
 
 class RegisterForm extends StatefulWidget {
   @override
@@ -20,17 +17,24 @@ class _RegisterFormState extends State<RegisterForm> {
   final confirmPasswordController = TextEditingController();
 
   void _register() {
-    if (_formKey.currentState!.validate()) {
-      if (passwordController.text == confirmPasswordController.text) {
-        print('Nombre: ${nameController.text}');
-        print('Correo: ${emailController.text}');
-        print('Teléfono: ${phoneController.text}');
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Las contraseñas no coinciden')),
-        );
-      }
+    final name = nameController.text;
+    final email = emailController.text;
+    final phone = phoneController.text;
+    final password = passwordController.text;
+    final confirmPassword = confirmPasswordController.text;
+
+    if (password != confirmPassword) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Las contraseñas no coinciden')));
+      return;
     }
+
+    if (_formKey.currentState!.validate()) {
+      print('Nombre: $name');
+      print('Correo: $email');
+      print('Teléfono: $phone');
+      print('Contraseña: $password');
+      Navigator.pop(context); 
+      }
   }
 
   @override
@@ -38,18 +42,67 @@ class _RegisterFormState extends State<RegisterForm> {
     return Form(
       key: _formKey,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          NameInput(controller: nameController),
-          EmailInput(controller: emailController),
-          PhoneInput(controller: phoneController),
-          PasswordInput(
-            passwordController: passwordController,
-            confirmPasswordController: confirmPasswordController,
+          CustomInput(
+            controller: nameController,
+            labelText: 'Nombre Completo',
+            hintText: 'Ingrese su nombre',
+            keyboardType: TextInputType.text,
+            validator: (value) {
+              if (value == null || value.isEmpty) return 'Ingrese su nombre';
+              if (value.length < 3 || value.length > 10) return 'Nombre debe tener entre 3 y 10 caracteres';
+              return null;
+            },
           ),
-          RegisterButton(onPressed: _register),
+          SizedBox(height: 15),
+          CustomInput(
+            controller: emailController,
+            labelText: 'Correo',
+            hintText: 'Ingrese su correo',
+            keyboardType: TextInputType.emailAddress,
+            validator: (value) {
+              if (value == null || value.isEmpty) return 'Ingrese su correo';
+              if (!value.contains('@unah.edu.hn') && !value.contains('@unah.hn')) return 'Correo inválido';
+              return null;
+            },
+          ),
+          SizedBox(height: 15),
+          CustomInput(
+            controller: phoneController,
+            labelText: 'Teléfono',
+            hintText: 'Ingrese su teléfono',
+            keyboardType: TextInputType.phone,
+            validator: (value) {
+              if (value == null || value.isEmpty) return 'Ingrese su teléfono';
+              if (!RegExp(r'^[3|9]\d{7}$').hasMatch(value)) return 'Teléfono inválido';
+              return null;
+            },
+          ),
+          SizedBox(height: 15),
+          PasswordInput(  
+            controller: passwordController,
+            labelText: 'Contraseña',
+            hintText: 'Ingrese su contraseña',
+          ),
+          SizedBox(height: 15),
+          PasswordInput(  
+            controller: confirmPasswordController,
+            labelText: 'Confirmar Contraseña',
+            hintText: 'Repita su contraseña',
+            validator: (value) {
+              if (value == null || value.isEmpty) return 'Repita su contraseña';
+              if (value != passwordController.text) return 'Las contraseñas no coinciden';
+              return null;
+            },
+          ),
+          SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: _register,
+            child: Text('Registrarse', style: TextStyle(fontSize: 16)),
+          ),
         ],
       ),
     );
   }
 }
-**/

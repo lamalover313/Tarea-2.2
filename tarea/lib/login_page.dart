@@ -15,7 +15,7 @@ class _LoginPageState extends State<LoginPage> {
   bool _isPasswordVisible = false;
 
   final Map<String, String> registeredUsers = {
-    'test@unah.edu.hn': '12345678',
+    'martinez.manuel@unah.edu.hn': '20222030928',
   };
 
   void _login() {
